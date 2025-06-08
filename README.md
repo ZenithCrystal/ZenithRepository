@@ -171,45 +171,6 @@ python ai_news_aggregator.py
 3. 重新打开命令提示符或PowerShell
 4. 如果使用的是虚拟环境，确保已激活该环境
 
-### 代理连接问题
-
-如果在安装依赖包时遇到类似以下的代理错误：
-
-```
-ProxyError('Cannot connect to proxy.', NewConnectionError(...): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
-```
-
-请尝试以下解决方法：
-
-1. **临时禁用代理**：在命令行中执行以下命令临时禁用代理设置
-
-   ```
-   # Windows CMD
-   set HTTP_PROXY=
-   set HTTPS_PROXY=
-   
-   # Windows PowerShell
-   $env:HTTP_PROXY=""
-   $env:HTTPS_PROXY=""
-   ```
-
-2. **使用--no-proxy参数**：安装时添加--no-proxy参数
-
-   ```
-   python -m pip install -r requirements.txt --no-proxy
-   ```
-
-3. **修改pip配置**：创建或编辑pip.ini文件（Windows）
-
-   文件位置：`%APPDATA%\pip\pip.ini`或`%USERPROFILE%\pip\pip.ini`
-   
-   添加以下内容：
-   ```
-   [global]
-   proxy = 
-   ```
-
-4. **检查系统代理设置**：检查并更正Windows系统代理设置
 
 ### 新闻获取失败
 
